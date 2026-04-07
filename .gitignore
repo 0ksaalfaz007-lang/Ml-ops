@@ -6,3 +6,4 @@ notebook/
 *.pyc
 mlops_project.egg-info/
 custom_jenkins/*.md
+*.json
