@@ -1,11 +1,20 @@
 pipeline {
     agent any
-    stage ('Cloning GitHub Repository to jenkins') {
-        steps {
-            script {
-                echo 'Cloning GitHub Repository to jenkins ............'
-                checkout scmGit(branches: [[name: '*/main']], extensions: [], userRemoteConfigs: [[credentialsId: 'github-token', url: 'https://github.com/0ksaalfaz007-lang/Ml-ops.git']])
+    stages {
+        stage('Cloning GitHub Repository to jenkins') {
+            steps {
+                script {
+                    echo 'Cloning GitHub Repository to jenkins............'
+                    checkout scmGit(
+                        branches: [[name: '*/main']],
+                        extensions: [],
+                        userRemoteConfigs: [[
+                            credentialsId: 'github-token',
+                            url: 'https://github.com/0ksaalfaz007-lang/Ml-ops.git'
+                        ]]
+                    )
+                }
             }
         }
-    }
+    }                                 // ← CLOSE stages
 }
