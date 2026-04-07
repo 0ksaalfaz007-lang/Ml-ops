@@ -25,3 +25,23 @@ python -version
 apt install -y python3-pip
 apt install -y python3-venv
 exit
+
+
+----------- add the Google Cloud SDK GPG key before installing:
+
+apt-get install -y curl gnupg
+
+curl https://packages.cloud.google.com/apt/doc/apt-key.gpg \
+  | gpg --dearmor -o /usr/share/keyrings/google-cloud.gpg
+
+echo "deb [signed-by=/usr/share/keyrings/google-cloud.gpg] https://packages.cloud.google.com/apt cloud-sdk main" \
+  | tee /etc/apt/sources.list.d/google-cloud-sdk.list
+✅ Then install
+apt-get update
+apt-get install -y google-cloud-sdk
+
+🧪 Verify installation
+gcloud version
+
+If it prints a version → ✅ installed successfully.
+
