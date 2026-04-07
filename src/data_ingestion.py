@@ -1,14 +1,14 @@
 import os
 import sys
 import pandas as pd
-from src.logger import getLogger
+from src.logger import get_logger
 from src.custom_exception import CustomException
-from utils.common_functions import read_yaml_file
+from utils.common_functions import read_yaml
 from config.paths_config import *
 from google.cloud import storage
 from sklearn.model_selection import train_test_split
 
-logger = getLogger(__name__)
+logger = get_logger(__name__)
 
 class DataIngestion:
 
@@ -66,7 +66,7 @@ class DataIngestion:
 
 if __name__ == "__main__":
     try:
-        config = read_yaml_file(CONFIG_PATH)  # Fix 4: call function separately
+        config = read_yaml(CONFIG_PATH)  # Fix 4: call function separately
         data_ingestion = DataIngestion(config)
         data_ingestion.run()
     except Exception as e:

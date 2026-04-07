@@ -4,7 +4,7 @@ data_ingestion:
   train_ratio: 0.8
   test_ratio: 0.2
 
-data_preprocessing:
+data_processing:
   numerical_columns:
     - arrival_date
     - arrival_month
@@ -27,6 +27,6 @@ data_preprocessing:
     - repeated_guest
     - booking_status
 
-data_processing:
   skewness_threshold: 0.5
-  no_of_features_to_select: 10
+
+  no_of_features: 10

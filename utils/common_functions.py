@@ -1,12 +1,12 @@
 import sys
 import yaml
 import pandas
-from src.logger import getLogger
+from src.logger import get_logger
 from src.custom_exception import CustomException
 
-logger = getLogger(__name__)
+logger = get_logger(__name__)
 
-def read_yaml_file(path):
+def read_yaml(path):
     try:
         with open(path, 'r') as file:
             config = yaml.safe_load(file)
