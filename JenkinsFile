@@ -1,6 +1,6 @@
 pipeline {
     agent any
-
+    echo 'Starting Jenkins Pipeline'
     stage ('Cloning GitHub Repository to jenkins') {
         steps {
             script {
