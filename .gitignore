@@ -1,4 +1,7 @@
 venv/
 mlruns/
 logs/
-mlops-project.egg-info/
+__pycache__/
+notebook/
+*.pyc
+mlops_project.egg-info/
