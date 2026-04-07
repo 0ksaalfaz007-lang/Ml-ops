@@ -49,7 +49,7 @@ def index():
                                   type_of_meal_plan, room_type_reserved]])
 
             prediction = loaded_model.predict(features)
-
+            print("Prediction:", prediction)
             return render_template('index.html', prediction=prediction[0])
 
         except ValueError:
