@@ -1,5 +1,8 @@
 pipeline {
     agent any
+    environment {
+        VENV_DIR
+    }
     stages {
         stage('Cloning GitHub Repository to jenkins') {
             steps {
@@ -15,6 +18,20 @@ pipeline {
                     )
                 }
             }
+        }
+         stage('Setting up virtual environment and installing dependencies') {
+             steps {
+                 script {
+                     echo 'Setting up virtual environment and installing dependencies'
+                     sh '''
+                        python3 -m venv venv
+                        source venv/bin/activate
+                        pip install -r requirements.txt
+                        pip install -e .
+                     '''
+                 }
+             }
+
         }
     }                                 // ← CLOSE stages
 }
