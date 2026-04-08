@@ -14,8 +14,11 @@ RUN apt-get update -y && \
         openssl \
         python3 \
         python3-venv \
-        python3-pip && \
-    update-ca-certificates && \
+        python3-pip \
+        git && \
+    update-ca-certificates --fresh && \
+    git config --system http.sslCAInfo /etc/ssl/certs/ca-certificates.crt && \
+    git config --system http.sslVerify false && \
     ln -s /usr/bin/python3 /usr/bin/python && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
